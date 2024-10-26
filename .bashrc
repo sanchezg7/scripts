@@ -30,7 +30,10 @@ alias gc='git checkout .'
 alias gammend='git add . && git commit --amend --no-edit --date="now"'
 alias lisa=''
 alias antonella=''
-alias config='sudo vim ~/.bash_aliases'
+
+#########################
+alias config='vim ~/.bashrc'
+alias ar='source ~/.bashrc'
 
 ######################
 alias dev="cd ${DEV}"
