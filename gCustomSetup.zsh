@@ -95,6 +95,8 @@ alias gc='git checkout .'
 alias gammend='git add . && git commit --amend --no-edit --date="now"'
 alias lisa='ssh rawrdoe@192.168.30.77'
 alias rd='npm run dev'
+alias gcompare='git rev-list --count main..HEAD'
+alias gco='() { git checkout $(git branch | grep "$1" | head -n 1 | sed "s/^[ *]*//") }'
 
 #########################
 alias config='vim ~/.oh-my-zsh/custom/gCustomSetup.zsh && source ~/.zshrc'
