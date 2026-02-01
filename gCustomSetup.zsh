@@ -75,7 +75,7 @@ alias gcompare='git rev-list --count --left-right main..HEAD'
 alias gco='() { git checkout $(git branch | grep "$1" | head -n 1 | sed "s/^[ *]*//") }'
 alias fix='() { git add . && git commit -m "fix($1): $2"}'
 alias feat='() { git add . && git commit -m "feat($1): $2"}'
-alias docs='() { git add . && git commit -m "docs($1): $2:}'
+alias docs='() { git add . && git commit -m "docs($1): $2"}'
 alias chore='() { git add . && git commit -m "chore($1): $2"}'
 
 #########################
