@@ -1,19 +1,8 @@
 #!/bin/zsh
 # saved at ~/.oh-my-zsh/custom/gCustomSetup.zsh
 
-# ASDF Elixr setup
-# Don't need this bc brew is in the path already $(brew --prefix asdf)/libexec/asdf.sh
-
 # Android Setup
 export ANDROID_HOME=$HOME/Library/Android/sdk
-
-# PHP Setup
-# 20250925
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# VIM Setyp
-# Use nvim as the default instead of vim
-alias vim='nvim'
 
 # NVM Setup
 export NVM_DIR="$HOME/.nvm"
@@ -25,42 +14,29 @@ export NVM_DIR="$HOME/.nvm"
 #
 export PYTHON=/usr/bin/python3
 
+#######
+# Dev Setup
+#
 export DEV=$HOME/dev
+alias dev="cd ${DEV}"
 
+######
 # MISC Scripts
+#
 alias reflect="~/on-this-day.sh /Volumes/gStor/gVault/Health/Journal"
 
 # Unalias existing declarations of this since it oh my zsh might declare it for me
 unalias gcam 2>/dev/null
 gcam() {
-    git add . 
+    git add .
     git commit -m "$1"
 }
 
 # https://www.conventionalcommits.org/en/v1.0.0/#summary
-fix() {
-    git add .
-    git commit -m "fix: $1"
-}
 
 wip() {
   git add .
   git commit -m "wip: $1"
-}
-
-chore() {
-    git add .
-    git commit -m "chore: $1"
-}
-
-feat() {
-    git add .
-    git commit -m "feat: $1"
-}
-
-docs() {
-    git add .
-    git commit -m "docs: $1"
 }
 
 refactor() {
@@ -95,22 +71,27 @@ alias gc='git checkout .'
 alias gammend='git add . && git commit --amend --no-edit --date="now"'
 alias lisa='ssh rawrdoe@192.168.30.77'
 alias rd='npm run dev'
-alias gcompare='git rev-list --count main..HEAD'
+alias gcompare='git rev-list --count --left-right main..HEAD'
 alias gco='() { git checkout $(git branch | grep "$1" | head -n 1 | sed "s/^[ *]*//") }'
+alias fix='() { git add . && git commit -m "fix($1): $2"}'
+alias feat='() { git add . && git commit -m "feat($1): $2"}'
+alias docs='() { git add . && git commit -m "docs($1): $2:}'
+alias chore='() { git add . && git commit -m "chore($1): $2"}'
 
 #########################
 alias config='vim ~/.oh-my-zsh/custom/gCustomSetup.zsh && source ~/.zshrc'
 alias ar='source ~/.zshrc'
 
-######################
-alias dev="cd ${DEV}"
-alias wdev="cd ${WDEV}"
+
+#####################
+# Wireguard
+#
 alias wgu="wg-quick up wg0"
 alias wgd="wg-quick down wg0"
 
 ######################
 # Projects
-# 
+#
 alias dddzen="cd ${DEV}/webdev/dddzen"
 
 # pnpm
